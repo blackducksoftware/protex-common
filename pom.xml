@@ -31,7 +31,7 @@
     <dependency>
       <groupId>com.blackducksoftware.integration</groupId>
       <artifactId>protex-wrapped-sdk</artifactId>
-      <version>${protex.sdk.version}.1.0.1-SNAPSHOT</version>
+      <version>${protex.sdk.version}.1.0.1</version>
     </dependency>
     <dependency>
       <groupId>com.blackducksoftware.protex.sdkclient</groupId>
@@ -52,7 +52,7 @@
     <dependency>
       <groupId>com.blackducksoftware.integration</groupId>
       <artifactId>suite-common</artifactId>
-      <version>1.0.3-SNAPSHOT</version>
+      <version>1.0.3</version>
     </dependency>
     <dependency>
       <groupId>org.apache.commons</groupId>
