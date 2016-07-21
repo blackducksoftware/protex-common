@@ -9,7 +9,7 @@
   </parent>
 
   <artifactId>protex-common</artifactId>
-  <version>1.1.7-SNAPSHOT</version>
+  <version>1.1.7</version>
 
   <name>General Code for Protex Integration with CI systems</name>
   <url>https://www.github.com/blackducksoftware/protex-common</url>
