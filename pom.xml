@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.blackducksoftware.integration</groupId>
     <artifactId>common-maven-parent</artifactId>
-    <version>1.0.5</version>
+    <version>1.0.6</version>
   </parent>
 
   <artifactId>protex-common</artifactId>
@@ -43,11 +43,6 @@
           <artifactId>cxf-bundle</artifactId>
         </exclusion>
       </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>com.blackducksoftware.protex.sdkclient</groupId>
-      <artifactId>protex-sdk-client</artifactId>
-      <version>${protex.sdk.version}</version>
     </dependency>
     <dependency>
       <groupId>com.blackducksoftware.integration</groupId>
