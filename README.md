@@ -15,4 +15,4 @@ You can download the latest release from maven central.
 All documentation for protex-common can be found on the base project:  https://github.com/blackducksoftware/protex-common/wiki
 
 ## License ##
-Apache License 2.0
+Apache License 2.0 
