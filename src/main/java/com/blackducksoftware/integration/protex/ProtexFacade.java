@@ -81,7 +81,7 @@ public class ProtexFacade implements Serializable {
 
 	public ProtexFacade(final String serverUrl, final String username, final String encryptedPassword,
 			final boolean isPasswordEncrypted) throws InvalidKeyException, NoSuchAlgorithmException,
-			NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, IOException, ServerConfigException {
+	NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, IOException, ServerConfigException {
 		this(serverUrl, username, encryptedPassword, 300L, isPasswordEncrypted);
 	}
 
@@ -103,7 +103,7 @@ public class ProtexFacade implements Serializable {
 
 	public ProtexFacade(final String serverUrl, final String username, final String password, final long timeout,
 			final boolean isPasswordEncrypted) throws InvalidKeyException, NoSuchAlgorithmException,
-			NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, IOException, ServerConfigException {
+	NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, IOException, ServerConfigException {
 		if (StringUtils.isBlank(serverUrl)) {
 			throw new IllegalArgumentException("Protex server Url was not provided.");
 		}
@@ -340,14 +340,14 @@ public class ProtexFacade implements Serializable {
 			if (e.getFaultInfo() != null && e.getFaultInfo().getErrorCode() != null) {
 				if (e.getFaultInfo().getErrorCode().equals(ErrorCode.INVALID_CREDENTIALS)) {
 					throw new ProtexFacadeException("Server credentials were invalid :" + e.getMessage()
-							+ ", errorCode : " + e.getFaultInfo().getErrorCode(), e);
+					+ ", errorCode : " + e.getFaultInfo().getErrorCode(), e);
 				}
 				if (e.getFaultInfo().getErrorCode().equals(ErrorCode.PROJECT_NOT_FOUND)) {
 					throw new ProtexFacadeException("Could not find the project '" + projectName + "' : "
 							+ e.getMessage() + ", errorCode : " + e.getFaultInfo().getErrorCode(), e);
 				}
 				throw new ProtexFacadeException("Error checking the project '" + projectName + "' : " + e.getMessage()
-						+ ", errorCode : " + e.getFaultInfo().getErrorCode(), e);
+				+ ", errorCode : " + e.getFaultInfo().getErrorCode(), e);
 			} else {
 				logger.error(e.getMessage(), e);
 				throw new ProtexFacadeException("Error checking the project '" + projectName + "' : " + e.getMessage(),
@@ -368,7 +368,7 @@ public class ProtexFacade implements Serializable {
 	 */
 	public void protexPrepScanProject(final String projectId, final String hostname,
 			final String protexProjectSourcePath)
-			throws ProtexFacadeException, ServerConfigException, ServerConnectionException {
+					throws ProtexFacadeException, ServerConfigException, ServerConnectionException {
 
 		if (StringUtils.isBlank(projectId)) {
 			throw new IllegalArgumentException("Need to provide the Id of the Protex Project to prep.");
@@ -602,7 +602,7 @@ public class ProtexFacade implements Serializable {
 	 */
 	public Report createReportFromTemplate(final String projectId, final String reportTemplateId,
 			final ReportFormat outputFormat, final boolean tableOfContents)
-			throws ProtexFacadeException, ServerConfigException, ServerConnectionException {
+					throws ProtexFacadeException, ServerConfigException, ServerConnectionException {
 		if (StringUtils.isBlank(projectId)) {
 			throw new IllegalArgumentException(
 					"Need to provide the Project Id that you want to create this report for.");
@@ -621,6 +621,16 @@ public class ProtexFacade implements Serializable {
 
 		} catch (final SdkFault e) {
 			throw new ProtexFacadeException("Creating the Protex report failed : " + e.getMessage(), e);
+		} catch (final ServerConnectionException e) {
+			throw e;
+		}
+	}
+
+	public String getProtexVersion() throws ProtexFacadeException, ServerConfigException {
+		try {
+			return serverProxy.getPolicyApi().getSystemInformation().getBdsClientVersion();
+		} catch (final SdkFault e) {
+			throw new ProtexFacadeException("Getting the Protex server version failed : " + e.getMessage(), e);
 		} catch (final ServerConnectionException e) {
 			throw e;
 		}
