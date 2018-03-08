@@ -27,6 +27,13 @@
     <target.java.version>1.7</target.java.version>
   </properties>
 
+  <repositories>
+    <repository>
+      <id>redhat</id>
+      <url>https://maven.repository.redhat.com/ga/</url>
+    </repository>
+  </repositories>
+
   <dependencies>
     <dependency>
       <groupId>com.blackducksoftware.integration</groupId>
@@ -36,7 +43,7 @@
     <dependency>
       <groupId>com.blackducksoftware.protex.sdkclient</groupId>
       <artifactId>protex-sdk-utilities</artifactId>
-      <version>7.5.0</version>
+      <version>${protex.sdk.version}</version>
       <exclusions>
         <exclusion>
           <groupId>org.apache.cxf</groupId>
