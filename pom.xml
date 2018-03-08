@@ -32,6 +32,10 @@
       <id>redhat</id>
       <url>https://maven.repository.redhat.com/ga/</url>
     </repository>
+    <repository>
+      <id>bds snapshot</id>
+      <url>${bds.int.public.repository.snapshot.url}</url>
+    </repository>
   </repositories>
 
   <dependencies>
